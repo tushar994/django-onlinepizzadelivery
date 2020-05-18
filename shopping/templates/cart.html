@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        <a href="{% url 'logout_bro' %}"><button>logout</button></a>
+    <ul>
+        {% for object in objects %}
+            <li>{{object}}</li>
+            <a href=" {% url 'delete' object.id %}"><button>remove one instance</button></a>
+        {% endfor %}
+    </ul>
+    {% if total != None %}
+        {% if total != 0 %}
+            <p>The grand total is {{total}}</p>
+            <a href="{% url 'order' %}"><button>order now!!</button></a>
+        {% endif %}
+    {% endif %}
+    <a href="{% url 'main_page' %}"><button> back to menu</button></a>
+    <p>{{ ordered }}</p>
+</body>
+</html>

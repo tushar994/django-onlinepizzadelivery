@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <a href="{% url 'logout_bro' %}"><button>logout</button></a>
+    <ul>
+        {% for item in list_of_items %}
+            <li>{{item.name}} : {{item.price}}</li>
+            <a href="{% url 'add_to_cart' item.id %}"> 
+                <button>add to cart</button>
+            </a>
+            {% if item == added_item %}
+            <p> added an item </p>
+            {% endif%}
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
